@@ -74,7 +74,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MOTOROLA_LOG := true
 
-# TWRP
+# TWRP 
 RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
@@ -85,11 +85,38 @@ TW_DEFAULT_BRIGHTNESS := 80
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_CRYPTO := true
 TW_NO_USB_STORAGE := true
-#TW_USE_TOOLBOX    := true
-
-# Asian region languages
+# TW_USE_TOOLBOX    := true
 TW_EXTRA_LANGUAGES := true
 
-# Debug flags
-#TWRP_INCLUDE_LOGCAT := true
-#TARGET_USES_LOGD := true
+DEVICE_PATH := device/moto/griffin
+# MR config. MultiROM also uses parts of TWRP config
+TARGET_RECOVERY_IS_MULTIROM := true
+MR_NO_KEXEC := 2
+MR_ALLOW_NKK71_NOKEXEC_WORKAROUND := true
+MR_CONTINUOUS_FB_UPDATE := true
+MR_DPI := xxhdpi
+MR_DPI_FONT := 435
+MR_USE_MROM_FSTAB := true
+MR_FSTAB := $(DEVICE_PATH)/recovery.fstab
+MR_INIT_DEVICES := $(DEVICE_PATH)/multirom/mr_init_devices.c
+MR_KEXEC_MEM_MIN := 0x00200000
+MR_KEXEC_DTB := true
+MR_DEVICE_HOOKS := $(DEVICE_PATH)/multirom/mr_hooks.c
+MR_DEVICE_HOOKS_VER := 4
+MR_DEVICE_VARIANTS := MotoZ
+MR_QCOM_OVERLAY_HEADER := $(DEVICE_PATH)/multirom/mr_qcom_overlay.h
+MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
+# bootmenu
+DEVICE_RESOLUTION := 1440x2560
+MR_PIXEL_FORMAT := "RGBA_8888"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+MR_DEV_BLOCK_BOOTDEVICE := true
+# Versioning
+include $(DEVICE_PATH)/multirom/MR_REC_VERSION.mk
+BOARD_MKBOOTIMG_ARGS += --board mrom$(MR_REC_VERSION)
+MR_REC_VERSION := $(shell date -u +%Y%m%d)-01
+MR_DEVICE_SPECIFIC_VERSION := b
+
+#Force populating /dev/block/platform/msm_sdcc.1/by-name
+#from the emmc
+#MR_POPULATE_BY_NAME_PATH := "/dev/block/platform/by-name"
