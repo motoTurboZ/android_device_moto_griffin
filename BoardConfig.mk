@@ -97,13 +97,15 @@ MR_CONTINUOUS_FB_UPDATE := true
 MR_DPI := xxhdpi
 MR_DPI_FONT := 435
 MR_USE_MROM_FSTAB := true
-MR_FSTAB := $(DEVICE_PATH)/recovery.fstab
+MR_FSTAB := $(DEVICE_PATH)/multirom/mrom.fstab
+MR_INPUT_TYPE := type_b
 MR_INIT_DEVICES := $(DEVICE_PATH)/multirom/mr_init_devices.c
 MR_KEXEC_MEM_MIN := 0x00200000
 MR_KEXEC_DTB := true
 MR_DEVICE_HOOKS := $(DEVICE_PATH)/multirom/mr_hooks.c
 MR_DEVICE_HOOKS_VER := 4
 MR_DEVICE_VARIANTS := MotoZ
+MR_USE_QCOM_OVERLAY := true
 MR_QCOM_OVERLAY_HEADER := $(DEVICE_PATH)/multirom/mr_qcom_overlay.h
 MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
 # bootmenu
@@ -119,4 +121,4 @@ MR_DEVICE_SPECIFIC_VERSION := b
 
 #Force populating /dev/block/platform/msm_sdcc.1/by-name
 #from the emmc
-#MR_POPULATE_BY_NAME_PATH := "/dev/block/platform/by-name"
+MR_POPULATE_BY_NAME_PATH := "/dev/block/platform/by-name"
