@@ -88,7 +88,8 @@ TW_INCLUDE_NTFS_3G := true
 TW_NO_USB_STORAGE := true
 #TW_USE_TOOLBOX    := true
 TW_UNMOUNT_FIRMWARE_ON_BOOT := false
-TW_DEVICE_VERSION := n1 griffin Shreps
+TW_DEVICE_VERSION := griffin Erfan
+TW_INPUT_BLACKLIST := "hbtp_vm"
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
