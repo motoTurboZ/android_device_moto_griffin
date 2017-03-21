@@ -99,7 +99,7 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 # Asian region languages
 TW_EXTRA_LANGUAGES := true
 
-DEVICE_PATH := device/moto/griffin
+DEVICE_PATH := device/motorola/griffin
 # MR config. MultiROM also uses parts of TWRP config
 TARGET_RECOVERY_IS_MULTIROM := true
 MR_NO_KEXEC := 2
